@@ -220,17 +220,24 @@ class Detalii extends React.Component{
             
             return(
             <View style={styles.container}>
-
-            <Header
-            leftComponent={{ icon: 'md-arrow-round-back', type: "ionicon", color: '#fff', size: 36, marginBottom: 40,
-                            onPress: () => this.props.navigation.navigate(('Main'))} }
-            // centerComponent={{ text: 'HAPPY HOUR', style: { color: '#fff' } }}
-            centerComponent={<LogoTitle/>}
-            rightComponent={{ icon: 'settings', color: '#fff', size: 36, marginBottom: 0 }}
-           backgroundColor="#ee9323"
-            
-           outerContainerStyles={{height: 85, borderBottomWidth:0, marginBottom: -11, marginTop: 15}} 
-           />
+                    <Header
+                        leftComponent={{
+                            style: {
+                                paddingBottom: 15,
+                                marginBottom: 15,
+                            },
+                            icon: 'md-arrow-round-back', type: "ionicon", color: '#ffcd00', size: 24,
+                            onPress: () => this.props.navigation.navigate(('Main'))
+                        }}
+                        centerComponent={<LogoTitle />}
+                       
+                        backgroundColor="#fff"
+                        leftContainerStyle={{ bottom: 100 }}
+                        outerContainerStyles={{ height: 50, borderBottomWidth: 0, marginBottom: 0, marginTop: 0 }}
+                        containerStyle={{ height: 20 }}
+                    >
+                    </Header>
+       
 
             <FlatList
                     data={dataDetalii}
@@ -304,13 +311,13 @@ const styles =  StyleSheet.create({
 
 class LogoTitle extends React.Component {
     render() {
-      return (
-        <View style={{ }} >
-        <Image
-          source={require('../../assets/logo.png')}
-          style={{ width: 60, height: 60, bottom: 0}}
-        />
-        </View>
-      );
+        return (
+            <View style={{}} >
+                <Image
+                    source={require('../../assets/logoTestHeader.png')}
+                    style={{ width: 60, height: 40, top: 10 }}
+                />
+            </View>
+        );
     }
-  }
+}

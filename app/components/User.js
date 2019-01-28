@@ -69,18 +69,25 @@ class User extends React.Component{
         console.log(item.lista_bauturi);
         if(this.state.tipAbonament){
         return(
-     <View style={styles.container}>
+     <View style={styles.container} >
 
                 <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'center',
                      backgroundColor:"#ffb346", height:70}}>
-                        <View style={{ marginLeft: 15,}}><View><Text style={{color:"white", fontSize:24, fontWeight:"bold"}}>{item.prenume} {item.nume}</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{item.email}</Text></View></View>
+                    <View style={{ marginLeft: 15, }}><View><Text style={{ color: "white", fontSize: 20, fontWeight:"bold"}}>{item.prenume} {item.nume}</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{item.email}</Text></View></View>
 
                         <View style={{marginRight: 15,}}><Image source={require("../../assets/happy_user2.png")} style={{ width: 45, height: 45}}></Image></View>
                     </View>
                 
                     <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'center',
                      backgroundColor:"#ffb346", height:70}}>
-                    <View style={{ marginLeft: 15}}><View><Text style={{color:"white", fontSize:18, fontWeight:"bold"}}>Ati beneficiat de:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{this.state.nrBauturi} bauturi</Text></View></View>
+                    <View style={{ marginLeft: 15 }}>
+                    <View>
+                        <Text style={{ color: "white", fontSize: 20, fontWeight:"bold"}}>Ati beneficiat de:</Text>
+                        </View>
+                        <View>
+                            <Text style={{color: "#fff",fontSize:13, paddingBottom: 15}}>{this.state.nrBauturi} bauturi</Text>
+                            </View>
+                            </View>
                     <View style={{marginRight: 15}}><TouchableOpacity onPress={()=> { this.props.navigation.navigate(('Istoric'), {user_id: item._id}) } }
                 style={{width: 100, height: 38, marginTop: 10, flexDirection:"row", alignItems:"center", 
                 backgroundColor:"#fbd22c", justifyContent: 'center',marginTop: 7, marginBottom: 15}}>
@@ -91,8 +98,8 @@ class User extends React.Component{
                 
 
                 <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'center',
-                     backgroundColor:"#ffb346", height:70}}>
-                        <View style={{ marginLeft: 15,}}><View><Text style={{color:"white", fontSize:24, fontWeight:"bold"}}>Detalii abonament:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>Tip abonament: {this.state.tipAbonament}</Text></View>
+                    backgroundColor: "#ffb346", height: 70, paddingBottom: 15}}>
+                    <View style={{ marginLeft: 15, }}><View><Text style={{ color: "white", fontSize: 20, fontWeight:"bold"}}>Detalii abonament:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>Tip abonament: {this.state.tipAbonament}</Text></View>
                         <View><Text style={{color: "#fff",fontSize:13}}>Data sfarsit: {this.state.sfarsitAbonament}</Text></View></View>
 
                         
@@ -123,14 +130,14 @@ class User extends React.Component{
        
                        <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'center',
                             backgroundColor:"#ffb346", height:70}}>
-                               <View style={{ marginLeft: 15,}}><View><Text style={{color:"white", fontSize:24, fontWeight:"bold"}}>{item.prenume} {item.nume}</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{item.email}</Text></View></View>
+                               <View style={{ marginLeft: 15,}}><View><Text style={{color:"white", fontSize:20, fontWeight:"bold"}}>{item.prenume} {item.nume}</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{item.email}</Text></View></View>
        
                                <View style={{marginRight: 15,}}><Image source={require("../../assets/happy_user2.png")} style={{ width: 45, height: 45}}></Image></View>
                            </View>
                        
                            <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'center',
                             backgroundColor:"#ffb346", height:70}}>
-                           <View style={{ marginLeft: 15}}><View><Text style={{color:"white", fontSize:18, fontWeight:"bold"}}>Ati beneficiat de:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{this.state.nrBauturi} bauturi</Text></View></View>
+                    <View style={{ marginLeft: 15 }}><View><Text style={{ color: "white", fontSize: 20, fontWeight:"bold"}}>Ati beneficiat de:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>{this.state.nrBauturi} bauturi</Text></View></View>
                            <View style={{marginRight: 15}}><TouchableOpacity onPress={()=> { this.props.navigation.navigate(('Istoric'), {user_id: item._id}) } }
                        style={{width: 100, height: 38, marginTop: 10, flexDirection:"row", alignItems:"center", 
                        backgroundColor:"#fbd22c", justifyContent: 'center',marginTop: 7, marginBottom: 15}}>
@@ -141,8 +148,8 @@ class User extends React.Component{
                        
        
                        <View style={{flexDirection: "row", justifyContent:"space-between",alignItems: 'center',
-                            backgroundColor:"#ffb346", height:70}}>
-                               <View style={{ marginLeft: 15,}}><View><Text style={{color:"white", fontSize:24, fontWeight:"bold"}}>Detalii abonament:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>Nu aveti abonament</Text></View></View>
+                            backgroundColor:"#ffb346", height:70, paddingBottom: 15}}>
+                    <View style={{ marginLeft: 15, }}><View><Text style={{ color: "white", fontSize: 20, fontWeight:"bold"}}>Detalii abonament:</Text></View><View><Text style={{color: "#fff",fontSize:13}}>Nu aveti abonament</Text></View></View>
                                <View style={{marginRight: 15}}><TouchableOpacity onPress={()=> { this.props.navigation.navigate(('Cumpara_Abonament'), {user_id: item._id}) } }
                        style={{width: 100, height: 38, marginTop: 10, flexDirection:"row", alignItems:"center", 
                        backgroundColor:"#fbd22c", justifyContent: 'center',marginTop: 7, marginBottom: 15}}>
@@ -167,8 +174,24 @@ class User extends React.Component{
         console.log(this.state.sfarsitAbonament);
         return(
             <View style={styles.container}>
-
-            <Header
+                <Header
+                    leftComponent={{
+                        style: {
+                            paddingBottom: 15,
+                            marginBottom: 15,
+                        },
+                        icon: 'cog', type: "font-awesome", color: '#ffcd00', size: 22,
+                        onPress: () => this.props.navigation.navigate(('User'), { user_id: navigation.getParam("user_id", "NO-ID") })
+                    }}
+                    centerComponent={<LogoTitle />}
+                    rightComponent={{ icon: 'md-arrow-round-forward', type: "ionicon", color: '#ffcd00', size: 24, top: 0, onPress: () => this.props.navigation.navigate(('Main')) }}
+                    backgroundColor="#fff"
+                    leftContainerStyle={{ bottom: 100 }}
+                    outerContainerStyles={{ height: 50, borderBottomWidth: 0, marginBottom: 0, marginTop: 0 }}
+                    containerStyle={{ height: 20 }}
+                >
+                </Header>
+            {/* <Header
             leftComponent={{ icon: 'settings', color: '#fff', size: 36, marginBottom: 0} }
             // centerComponent={{ text: 'HAPPY HOUR', style: { color: '#fff' } }}
             centerComponent={<LogoTitle/>}
@@ -177,13 +200,15 @@ class User extends React.Component{
            backgroundColor="#ee9323"
             
            outerContainerStyles={{height: 85, borderBottomWidth:0, marginBottom: -11, marginTop: 15}} 
-           />
+           /> */}
 
                 <Text style={styles.header}>USER</Text>
                 <FlatList
                     data={dataUser}
                     renderItem={this.renderItem}
-                    keyExtractor={item => item._id} >
+                    keyExtractor={item => item._id} 
+                    
+                    >
             </FlatList>
             </View>
         )
@@ -193,12 +218,11 @@ export default User;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#ee9323",
       alignSelf: 'stretch' 
     },
     header:{
         fontSize:38,padding: 20,
-    color:"#fff",
+        color:"#ee9323",
     fontWeight:"bold"
     }
     
@@ -209,9 +233,9 @@ class LogoTitle extends React.Component {
       return (
         <View style={{ }} >
         <Image
-          source={require('../../assets/logo.png')}
-          style={{ width: 60, height: 60, bottom: 0}}
-        />
+                  source={require('../../assets/logoTestHeader.png')}
+                  style={{ width: 60, height: 40, top: 10}}
+            />
         </View>
       );
     }

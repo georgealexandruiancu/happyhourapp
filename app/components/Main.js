@@ -1,6 +1,5 @@
 import React from "react";
-import {ScrollView, YellowBox, Text, View, FlatList, ImageBackground, ActivityIndicator,
-    Image, TouchableOpacity, ToastAndroid, StyleSheet, AsyncStorage, TextInput} from "react-native";
+import {ScrollView, YellowBox, Text, View, FlatList, ImageBackground, ActivityIndicator, TouchableOpacity, ToastAndroid, StyleSheet, AsyncStorage, TextInput, Image} from "react-native";
 import NavBar, { NavButton, NavButtonText, NavGroup, NavTitle } from 'react-native-nav';
 import Icon from "react-native-vector-icons/SimpleLineIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -28,26 +27,27 @@ import FullWidthImage from 'react-native-fullwidth-image'
         return(
             
             <TouchableOpacity style={{ 
-                flex: 1, 
-                flexDirection: "row", 
+                flex: 1,
+                flexDirection: 'row',
                 margin: 20, 
-                borderRadius: 50,
+                borderRadius: 20,
                 borderWidth: 1,
-                borderRadius: 2,
                 borderColor: '#000',
                 borderBottomWidth: 0,
                 shadowColor: '#000',
                 shadowOffset: { width: 10, height: 4 },
                 shadowOpacity: 0.8,
                 shadowRadius: 2,
+                overflow: "hidden",
             }} 
         onPress={()=> {   
             this.props.navigation.navigate(('Detalii'),
             {itemDetalii: item, 
              user_id: navigation.getParam("user_id", "NO-ID") });
     } }>
-                <ImageBackground style={{ width: "100%", height: 275, borderRadius: 50}} source={{uri: item.imagine}} >
-
+               
+                <Image borderRadius={20} source={{ uri: item.imagine }} style={styles.imgCard}/>
+                <View style={styles.overlay} />
                  <View style={{flex:1, position: "absolute", bottom: 0, left: 0, marginLeft: 5, padding: 20}}>
 
                
@@ -63,8 +63,9 @@ import FullWidthImage from 'react-native-fullwidth-image'
                      </Text>
                     
                      
-                 </View>
-                 </ImageBackground>
+                
+                </View>
+
         </TouchableOpacity>
 
         
@@ -166,6 +167,14 @@ class LogoTitle extends React.Component {
 //   }
 
 const styles = StyleSheet.create({
+    imgCard:{
+        
+        width: "100%", height: 254
+    },
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(0,0,0,0.5)'
+    },
     inputSearch:{
         borderBottomColor: "#ffcd00",
         borderBottomWidth: 2,
